@@ -1,6 +1,6 @@
 package com.homework.enums;
 
-public enum Types {
+public enum MovieType {
 
     PREMIER, REGULAR;
 

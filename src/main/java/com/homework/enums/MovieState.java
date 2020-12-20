@@ -1,5 +1,5 @@
 package com.homework.enums;
 
-public enum State {
+public enum MovieState {
     ACTIVE, DRAFT, SUSPENDED;
 }

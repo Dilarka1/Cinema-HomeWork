@@ -4,28 +4,24 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class User {
+@Table(name = "user_account")
+public class User extends BaseEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String user_id;
-
-    private Long user_account_id;
     private String email;
     private String password;
     private String username;
 
-    public User(Long user_account_id, String email, String password, String username) {
-        this.user_account_id = user_account_id;
+    @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "account_details_id")
+    private Account account;
+
+    public User(String email, String password, String username) {
         this.email = email;
         this.password = password;
         this.username = username;

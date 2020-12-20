@@ -11,24 +11,20 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-public class MovieCinema {
+public class MovieCinema extends BaseEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long movie_cinema_id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "movie_id")
+    private Movie movie;
 
-    private String address;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cinema_id")
+    private Cinema cinema;
 
-    private Long cinema_id;
+    @Column(columnDefinition = "TIMESTAMP")
+    private LocalDateTime dateTime;
 
-    private Long movie_id;
-
-    @Column(columnDefinition = "DATE TIME")
-    private LocalDateTime date_time;
-
-    public MovieCinema(String address, Long movie_id, LocalDateTime date_time) {
-        this.address = address;
-        this.movie_id = movie_id;
-        this.date_time = date_time;
+    public MovieCinema(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 }

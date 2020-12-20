@@ -1,47 +1,55 @@
 package com.homework.entity;
 
-import com.homework.enums.State;
-import com.homework.enums.Types;
+import com.homework.enums.MovieState;
+import com.homework.enums.MovieType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class Movie {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long movie_id;
+public class Movie extends BaseEntity {
 
     private String name;
-    private Long price;
-
-    @Enumerated(EnumType.STRING)
-    private Types types;
-
-    @Enumerated(EnumType.STRING)
-    private State state;
 
     @Column(columnDefinition = "DATE")
-    private LocalDate release_date;
+    private LocalDate releaseDate;
 
-    private Long duration;
+    private Integer duration;
+
+    @Column(columnDefinition = "text")
     private String summary;
 
-    public Movie(String name, Long price, Types types, State state, LocalDate release_date, Long duration, String summary) {
+    @Enumerated(EnumType.STRING)
+    private MovieType type;
+
+    @Enumerated(EnumType.STRING)
+    private MovieState state;
+
+    private BigDecimal price;
+
+    @ManyToMany
+    @JoinTable(name = "movie_genre_rel",
+            joinColumns = @JoinColumn(name = "movie_id"),
+            inverseJoinColumns = @JoinColumn(name = "genre_id"))
+    private List<Genre> genreList = new ArrayList<>();
+
+
+    public Movie(String name, LocalDate releaseDate, Integer duration, MovieType type, MovieState state, BigDecimal price) {
         this.name = name;
-        this.price = price;
-        this.types = types;
-        this.state = state;
-        this.release_date = release_date;
+        this.releaseDate = releaseDate;
         this.duration = duration;
-        this.summary = summary;
+        this.type = type;
+        this.state = state;
+        this.price = price;
     }
 }
