@@ -28,8 +28,7 @@ public class Tickets {
     private Long row_number;
     private Long seat_number;
 
-    public Tickets(Long ticket_id, String movie_cinema_id, String user_id, LocalDateTime date_time, Long row_number, Long seat_number) {
-        this.ticket_id = ticket_id;
+    public Tickets(String movie_cinema_id, String user_id, LocalDateTime date_time, Long row_number, Long seat_number) {
         this.movie_cinema_id = movie_cinema_id;
         this.user_id = user_id;
         this.date_time = date_time;

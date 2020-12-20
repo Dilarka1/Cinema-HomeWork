@@ -5,7 +5,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -18,6 +17,8 @@ public class MovieCinema {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long movie_cinema_id;
 
+    private String address;
+
     private Long cinema_id;
 
     private Long movie_id;
@@ -25,9 +26,8 @@ public class MovieCinema {
     @Column(columnDefinition = "DATE TIME")
     private LocalDateTime date_time;
 
-    public MovieCinema(Long movie_cinema_id, Long cinema_id, Long movie_id, LocalDateTime date_time) {
-        this.movie_cinema_id = movie_cinema_id;
-        this.cinema_id = cinema_id;
+    public MovieCinema(String address, Long movie_id, LocalDateTime date_time) {
+        this.address = address;
         this.movie_id = movie_id;
         this.date_time = date_time;
     }

@@ -24,8 +24,7 @@ public class User {
     private String password;
     private String username;
 
-    public User(String user_id, Long user_account_id, String email, String password, String username) {
-        this.user_id = user_id;
+    public User(Long user_account_id, String email, String password, String username) {
         this.user_account_id = user_account_id;
         this.email = email;
         this.password = password;

@@ -35,8 +35,7 @@ public class Movie {
     private Long duration;
     private String summary;
 
-    public Movie(Long movie_id, String name, Long price, Types types, State state, LocalDate release_date, Long duration, String summary) {
-        this.movie_id = movie_id;
+    public Movie(String name, Long price, Types types, State state, LocalDate release_date, Long duration, String summary) {
         this.name = name;
         this.price = price;
         this.types = types;

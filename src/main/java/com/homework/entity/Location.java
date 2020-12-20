@@ -23,8 +23,7 @@ public class Location {
     private Float latitude;
     private Float longitude;
 
-    public Location(String location_id, String name, Float latitude, Float longitude) {
-        this.location_id = location_id;
+    public Location(String name, Float latitude, Float longitude) {
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;

@@ -22,8 +22,7 @@ public class MovieGenre {
     private Long genre_id;
 
 
-    public MovieGenre(Long movie_id, Long genre_id) {
-        this.movie_id = movie_id;
+    public MovieGenre(Long genre_id) {
         this.genre_id = genre_id;
     }
 }
