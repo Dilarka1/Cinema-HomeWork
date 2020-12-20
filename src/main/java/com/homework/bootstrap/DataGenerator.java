@@ -1,10 +1,10 @@
-package com.cybertek.bootstrap;
+package com.homework.bootstrap;
 
-import com.cybertek.entity.*;
-import com.cybertek.enums.MovieState;
-import com.cybertek.enums.MovieType;
-import com.cybertek.enums.UserRole;
-import com.cybertek.repository.*;
+import com.homework.entity.*;
+import com.homework.enums.MovieState;
+import com.homework.enums.MovieType;
+import com.homework.enums.UserRole;
+import com.homework.repository.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
